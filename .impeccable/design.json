@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-01T21:36:46Z",
+  "title": "Design System: Poké Matchup Lab",
+  "extensions": {
+    "colorMeta": {
+      "pokedex-red": {
+        "role": "primary",
+        "displayName": "Pokédex Red",
+        "canonical": "#d93636",
+        "tonalRamp": ["#3b0b0b", "#641414", "#8f1f1f", "#b82b2b", "#d93636", "#e96868", "#f3a4a4", "#fde1e1"]
+      },
+      "archive-yellow": {
+        "role": "secondary",
+        "displayName": "Archive Yellow",
+        "canonical": "#f6cf33",
+        "tonalRamp": ["#382c02", "#655204", "#907607", "#bd9c10", "#f6cf33", "#f9dd6e", "#fbeaa6", "#fff8df"]
+      },
+      "control-blue-deep": {
+        "role": "secondary",
+        "displayName": "Control Blue Deep",
+        "canonical": "#1e4f7b",
+        "tonalRamp": ["#071725", "#0c2a43", "#133d60", "#1e4f7b", "#2f6ea5", "#6397c4", "#a5c4df", "#e1eef8"]
+      },
+      "scan-glass": {
+        "role": "neutral",
+        "displayName": "Scan Glass",
+        "canonical": "#dbeae3",
+        "tonalRamp": ["#14231d", "#294139", "#48655b", "#6e8b80", "#9db5ab", "#bdd1c8", "#dbeae3", "#f1f7f4"]
+      },
+      "specimen-paper": {
+        "role": "neutral",
+        "displayName": "Specimen Paper",
+        "canonical": "#fffaf0",
+        "tonalRamp": ["#28241c", "#4d473b", "#726b5d", "#9b9384", "#c6bdad", "#e4dccc", "#f5eddf", "#fffaf0"]
+      },
+      "carbon-ink": {
+        "role": "neutral",
+        "displayName": "Carbon Ink",
+        "canonical": "#17212b",
+        "tonalRamp": ["#0a0e13", "#17212b", "#2e3d4a", "#53616e", "#7c8994", "#aeb7bf", "#d7dce0", "#f4f6f7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Task Display", "purpose": "One task-defining headline per surface." },
+      "body": { "displayName": "Field Notes", "purpose": "Short explanations and recovery copy." },
+      "label": { "displayName": "Equipment Label", "purpose": "Statuses, archive identifiers, and controls." }
+    },
+    "shadows": [
+      { "name": "device-lift", "value": "0 22px 50px rgba(92, 42, 18, 0.28), 0 7px 0 #9f2029", "purpose": "Ground the complete device on desktop." },
+      { "name": "suggestion-lift", "value": "0 12px 24px rgba(23, 33, 43, 0.18)", "purpose": "Separate the temporary fuzzy-search menu." },
+      { "name": "scan-inset", "value": "inset 0 0 34px rgba(32, 84, 77, 0.12)", "purpose": "Suggest depth inside the scanner glass." }
+    ],
+    "motion": [
+      { "name": "settle-in", "value": "480ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Settle newly loaded Pokémon artwork into the scanner." },
+      { "name": "control-state", "value": "160ms ease", "purpose": "Hover and press response for controls." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "820px" },
+      { "name": "handheld", "value": "520px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Scan Button",
+      "kind": "button",
+      "refersTo": "scan-button",
+      "description": "Primary action for committing a Pokémon lookup.",
+      "html": "<button class=\"ds-scan-button\">SCAN</button>",
+      "css": ".ds-scan-button { min-width: 86px; height: 50px; padding: 0 16px; border: 0; border-radius: 10px; color: #fff; background: #1e4f7b; font: 900 0.78rem Geist, sans-serif; letter-spacing: 0.09em; text-transform: uppercase; transition: background 160ms ease, transform 160ms ease; } .ds-scan-button:hover { background: #173e61; } .ds-scan-button:focus-visible { outline: 3px solid #1b65a0; outline-offset: 3px; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Heavy outlined fuzzy-search control.",
+      "html": "<div class=\"ds-search-wrap\"><input class=\"ds-search-input\" value=\"charzard\" aria-label=\"Search Pokémon by name\"><button class=\"ds-search-submit\">SCAN</button></div>",
+      "css": ".ds-search-wrap { display: flex; gap: 6px; padding: 6px; border: 3px solid #17212b; border-radius: 14px; background: #fff; } .ds-search-wrap:focus-within { outline: 4px solid rgba(59,130,196,.28); outline-offset: 2px; } .ds-search-input { flex: 1; min-width: 0; border: 0; padding: 0 13px; font: 750 1rem Geist, sans-serif; outline: 0; } .ds-search-submit { border: 0; border-radius: 10px; padding: 0 16px; color: #fff; background: #1e4f7b; font-weight: 900; }"
+    },
+    {
+      "name": "Type Capsule",
+      "kind": "chip",
+      "refersTo": "type-capsule",
+      "description": "Semantic type label with an optional defensive multiplier.",
+      "html": "<span class=\"ds-type-capsule\"><span>Rock</span><strong>4×</strong></span>",
+      "css": ".ds-type-capsule { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; padding: 5px 8px 5px 10px; border-radius: 999px; color: #17212b; background: #b6a136; font: 850 0.72rem Geist, sans-serif; } .ds-type-capsule strong { min-width: 27px; padding: 4px 5px; border-radius: 999px; color: #fff; background: rgba(23,33,43,.72); text-align: center; font-size: .64rem; }"
+    },
+    {
+      "name": "Matchup Tray",
+      "kind": "custom",
+      "description": "Verdict label paired with wrapping type capsules.",
+      "html": "<section class=\"ds-matchup-tray\"><div><h3>Hits harder</h3><p>Super-effective attacks</p></div><span class=\"ds-type-capsule\">Rock <strong>4×</strong></span></section>",
+      "css": ".ds-matchup-tray { display: grid; grid-template-columns: minmax(120px,.46fr) minmax(180px,1fr); align-items: center; gap: 18px; padding: 16px; border-radius: 14px; background: #ffe3df; font-family: Geist, sans-serif; } .ds-matchup-tray h3 { margin: 0; color: #17212b; font-size: 1.03rem; } .ds-matchup-tray p { margin: 4px 0 0; color: #4e5963; font-size: .72rem; } .ds-type-capsule { display: inline-flex; gap: 8px; padding: 7px 10px; border-radius: 999px; color: #17212b; background: #b6a136; font-weight: 850; }"
+    },
+    {
+      "name": "Specimen Display",
+      "kind": "card",
+      "description": "Cool scan-glass stage with a warm archive label.",
+      "html": "<section class=\"ds-specimen\"><p>SPECIMEN LOCKED</p><div class=\"ds-specimen-stage\"></div><div class=\"ds-specimen-label\"><strong>ARCHIVE #0025</strong><h2>Pikachu</h2></div></section>",
+      "css": ".ds-specimen { overflow: hidden; border: 3px solid #17212b; border-radius: 16px; background: #dbeae3; box-shadow: inset 0 0 34px rgba(32,84,77,.12); font-family: Geist, sans-serif; } .ds-specimen > p { margin: 16px; color: #28524c; font-size: .7rem; font-weight: 900; letter-spacing: .11em; } .ds-specimen-stage { min-height: 150px; } .ds-specimen-label { padding: 13px; border-top: 2px solid rgba(23,33,43,.22); background: rgba(255,255,255,.5); } .ds-specimen-label strong { font-size: .72rem; letter-spacing: .1em; } .ds-specimen-label h2 { margin: 2px 0 0; font-size: 2rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Professor's Field Archive",
+    "overview": "The interface behaves like one compact piece of field equipment: a red outer shell contains a forgiving scanner, a cool specimen display, and a cream matchup report. Its personality comes from useful physical metaphors while the information hierarchy remains that of a fast reference tool.",
+    "keyCharacteristics": [
+      "Pokédex-red device shell around warm paper and cool scan-glass surfaces.",
+      "One dominant task per surface: identify a Pokémon, then read its matchup.",
+      "Tactile seams and labels without decorative dashboard chrome.",
+      "Type colors are semantic data, never arbitrary accents."
+    ],
+    "rules": [
+      { "name": "The Semantic Type Rule", "body": "The eighteen Pokémon type colors belong only to type capsules and the data they identify; they do not become general UI accents.", "section": "colors" },
+      { "name": "The One Big Voice Rule", "body": "Only the primary task headline reaches display scale; report headings and data labels step down decisively.", "section": "typography" },
+      { "name": "The Contained Depth Rule", "body": "Shadow establishes the complete device or a temporary overlay; content trays stay flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do treat type color as data and preserve each capsule's readable text contrast.",
+      "Do keep the search-to-answer path visible within one surface.",
+      "Do let live Pokémon artwork sit on the cool scan-glass stage.",
+      "Do preserve clear 4×, 2×, 0.5×, 0.25×, and 0× multipliers."
+    ],
+    "donts": [
+      "Don't use the official Pokémon logo or present the utility as official.",
+      "Don't distribute type colors into unrelated controls or decoration.",
+      "Don't add generic dashboard cards, metrics, navigation chrome, or extra routes around the core lookup.",
+      "Don't give every inner surface a shadow; the physical hierarchy depends on restraint."
+    ]
+  }
+}

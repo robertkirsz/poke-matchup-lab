@@ -1,0 +1,56 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-08-13T07:38:24.338Z",
+        "reason": "Geist is the established Poké Matchup Lab identity and the user chose to preserve it"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(92, 42, 18, 0.28)",
+        "createdAt": "2026-08-13T07:40:17.219Z",
+        "reason": "Documented device-lift shadow recipe"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(89, 12, 21, 0.38)",
+        "createdAt": "2026-08-13T07:40:17.249Z",
+        "reason": "Intentional translucent header seam"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(89, 12, 21, 0.25)",
+        "createdAt": "2026-08-13T07:40:17.279Z",
+        "reason": "Intentional Pokeball depth shadow"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.25)",
+        "createdAt": "2026-08-13T07:40:17.308Z",
+        "reason": "Intentional inset device-light shading"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(32, 84, 77, 0.12)",
+        "createdAt": "2026-08-13T07:40:17.338Z",
+        "reason": "Documented scan-inset shadow recipe"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(35, 81, 75, 0.17)",
+        "createdAt": "2026-08-13T07:40:17.367Z",
+        "reason": "Intentional translucent scanner guide"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#b6a136",
+        "createdAt": "2026-08-13T07:40:17.397Z",
+        "reason": "Canonical Rock type data color, not a general UI token"
+      }
+    ]
+  }
+}

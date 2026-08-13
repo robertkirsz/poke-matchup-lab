@@ -27,6 +27,7 @@ The primary flow is a short lookup on desktop or mobile: type a full or approxim
 - Use PokéAPI as the live data source.
 - Fuzzy-match Pokémon names and support keyboard selection.
 - Calculate combined defensive multipliers for dual-type Pokémon.
+- Show the complete evolution family, including branches, and let users scan any stage directly.
 - Present loading, empty, unavailable, and not-found states clearly.
 - Keep the experience to one simple app surface.
 

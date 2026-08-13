@@ -1,4 +1,4 @@
-const VERSION = "poke-matchup-v1";
+const VERSION = "poke-matchup-v2";
 const APP_CACHE = `${VERSION}-app`;
 const POKEAPI_CACHE = `${VERSION}-pokeapi`;
 const APP_SHELL = ["/", "/manifest.webmanifest", "/favicon.svg", "/pwa-192.png", "/pwa-512.png"];
@@ -23,7 +23,11 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
 
-  if (url.origin === "https://pokeapi.co") {
+  const isPokeApiRequest = url.origin === "https://pokeapi.co";
+  const isPokeApiSprite =
+    url.origin === "https://raw.githubusercontent.com" && url.pathname.startsWith("/PokeAPI/sprites/");
+
+  if (isPokeApiRequest || isPokeApiSprite) {
     event.respondWith(
       caches.open(POKEAPI_CACHE).then(async (cache) => {
         const cached = await cache.match(request);

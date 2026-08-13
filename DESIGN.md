@@ -11,6 +11,30 @@ colors:
   specimen-paper: "#fffaf0"
   tray-cream: "#f5edda"
   carbon-ink: "#17212b"
+  pure-white: "#ffffff"
+  header-red: "#df3d3d"
+  focus-blue: "#1b65a0"
+  status-green: "#2c8f67"
+  text-primary-muted: "#4c5660"
+  text-secondary: "#59636d"
+  text-specimen: "#425d57"
+  tray-danger: "#ffe3df"
+  tray-safe: "#e3f1e6"
+  tray-immune: "#e9e5ef"
+  brand-ring: "#23303b"
+  red-on-dark: "#ffe9e9"
+  light-cyan: "#62d8ff"
+  light-yellow: "#f4d63d"
+  light-green: "#68d27b"
+  text-placeholder: "#707983"
+  text-hint: "#626c76"
+  text-status: "#28524c"
+  text-archive: "#506862"
+  text-tray: "#4e5963"
+  text-details: "#46505a"
+  text-state: "#5b6670"
+  type-dark-text: "#1d282f"
+  divider-cream: "#e2d9c6"
 typography:
   display:
     fontFamily: "Geist, sans-serif"
@@ -23,6 +47,81 @@ typography:
     fontSize: "0.98rem"
     fontWeight: 400
     lineHeight: 1.55
+  headline:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "clamp(1.75rem, 3.4vw, 2.7rem)"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.04em"
+  title:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "1.03rem"
+    fontWeight: 700
+    lineHeight: 1.2
+  brand:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "clamp(1.15rem, 2vw, 1.55rem)"
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: "-0.035em"
+  specimen-title:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "clamp(1.55rem, 3vw, 2.2rem)"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "-0.03em"
+  body-small:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.88rem"
+    fontWeight: 400
+    lineHeight: 1.5
+  control-label:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.78rem"
+    fontWeight: 800
+    lineHeight: 1
+  compact-label:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.67rem"
+    fontWeight: 850
+    lineHeight: 1
+  micro-label:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.64rem"
+    fontWeight: 850
+    lineHeight: 1
+  suggestion-title:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "0.92rem"
+    fontWeight: 800
+    lineHeight: 1.2
+  metric:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 850
+    lineHeight: 1
+  state-title:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "1.7rem"
+    fontWeight: 700
+    lineHeight: 1
+  alert-mark:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "1.8rem"
+    fontWeight: 900
+    lineHeight: 1
+  display-tablet:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "clamp(2.5rem, 11vw, 4.8rem)"
+    fontWeight: 900
+    lineHeight: 0.9
+    letterSpacing: "-0.04em"
+  display-mobile:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "clamp(2.45rem, 14vw, 3.7rem)"
+    fontWeight: 900
+    lineHeight: 0.9
+    letterSpacing: "-0.04em"
   label:
     fontFamily: "Geist, sans-serif"
     fontSize: "0.72rem"
@@ -49,13 +148,13 @@ components:
     padding: "0 16px"
     height: "50px"
   search-field:
-    backgroundColor: "#ffffff"
+    backgroundColor: "{colors.pure-white}"
     textColor: "{colors.carbon-ink}"
     rounded: "{rounded.tray}"
     padding: "6px"
     height: "68px"
   type-capsule:
-    textColor: "#ffffff"
+    textColor: "{colors.pure-white}"
     typography: "{typography.label}"
     rounded: "{rounded.capsule}"
     padding: "5px 8px 5px 10px"
@@ -99,6 +198,8 @@ The core palette uses committed red and yellow around calm paper and scan-glass 
 - **Scan Glass** (`#dbeae3`): Pokémon artwork stage and scanner state.
 - **Carbon Ink** (`#17212b`): Headlines, outlines, and high-priority copy.
 
+Functional colors cover focus, status, muted copy, and the three report outcomes. Tiny cyan, yellow, and green device lamps remain equipment indicators rather than general accents.
+
 **The Semantic Type Rule.** The eighteen Pokémon type colors belong only to type capsules and the data they identify; they do not become general UI accents.
 
 ## Typography
@@ -115,6 +216,7 @@ The core palette uses committed red and yellow around calm paper and scan-glass 
 - **Headline** (700–900, `clamp(1.75rem, 3.4vw, 2.7rem)`): Report and specimen names.
 - **Body** (400, `0.88rem`–`0.98rem`, 1.5–1.55): Explanations and recovery guidance, kept under roughly 47 characters where possible.
 - **Label** (800–900, `0.67rem`–`0.78rem`, 0.08em–0.11em): Archive identifiers, device status, and action labels.
+- **Micro Label** (800–900, `0.64rem`): Multiplier counters only; never body copy.
 
 **The One Big Voice Rule.** Only the primary task headline reaches display scale; report headings and data labels step down decisively.
 
@@ -170,6 +272,10 @@ The silhouette moves from a 26px device radius to 16px content panels, 14px repo
 
 Each tray pairs a short verdict and explanation with wrapping type capsules. Weakness uses pale red, resistance pale green, and immunity pale violet. The strongest multipliers sort first.
 
+### Evolution Archive
+
+The specimen label extends directly into a compact evolution archive, without a visible section heading. Every family sits in one horizontal, scroll-safe row of small tactile buttons. Each button carries its stage number in the top-left plus its sprite, name, and archive number; the current specimen uses the deep scanner-blue selected state.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -178,6 +284,7 @@ Each tray pairs a short verdict and explanation with wrapping type capsules. Wea
 - **Do** keep the search-to-answer path visible within one surface.
 - **Do** let live Pokémon artwork sit on the cool scan-glass stage.
 - **Do** preserve clear `4×`, `2×`, `0.5×`, `0.25×`, and `0×` multipliers.
+- **Do** keep every evolution branch reachable from the specimen archive.
 
 ### Don't:
 

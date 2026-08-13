@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-01T21:36:46Z",
+  "generatedAt": "2026-08-13T07:40:17Z",
   "title": "Design System: Poké Matchup Lab",
   "extensions": {
     "colorMeta": {
@@ -44,7 +44,15 @@
     "typographyMeta": {
       "display": { "displayName": "Task Display", "purpose": "One task-defining headline per surface." },
       "body": { "displayName": "Field Notes", "purpose": "Short explanations and recovery copy." },
-      "label": { "displayName": "Equipment Label", "purpose": "Statuses, archive identifiers, and controls." }
+      "headline": { "displayName": "Report Headline", "purpose": "Report and specimen section headings." },
+      "title": { "displayName": "Tray Title", "purpose": "Compact verdict headings." },
+      "brand": { "displayName": "Device Brand", "purpose": "The compact Poké Matchup Lab header lockup." },
+      "specimen-title": { "displayName": "Specimen Name", "purpose": "The selected Pokémon name." },
+      "body-small": { "displayName": "Compact Field Notes", "purpose": "Supporting copy in dense report areas." },
+      "label": { "displayName": "Equipment Label", "purpose": "Statuses and archive identifiers." },
+      "control-label": { "displayName": "Control Label", "purpose": "Buttons, summaries, and compact utility copy." },
+      "compact-label": { "displayName": "Compact Label", "purpose": "Evolution stages and matchup counters." },
+      "micro-label": { "displayName": "Micro Label", "purpose": "Inset multiplier counters." }
     },
     "shadows": [
       { "name": "device-lift", "value": "0 22px 50px rgba(92, 42, 18, 0.28), 0 7px 0 #9f2029", "purpose": "Ground the complete device on desktop." },
@@ -97,7 +105,14 @@
       "kind": "card",
       "description": "Cool scan-glass stage with a warm archive label.",
       "html": "<section class=\"ds-specimen\"><p>SPECIMEN LOCKED</p><div class=\"ds-specimen-stage\"></div><div class=\"ds-specimen-label\"><strong>ARCHIVE #0025</strong><h2>Pikachu</h2></div></section>",
-      "css": ".ds-specimen { overflow: hidden; border: 3px solid #17212b; border-radius: 16px; background: #dbeae3; box-shadow: inset 0 0 34px rgba(32,84,77,.12); font-family: Geist, sans-serif; } .ds-specimen > p { margin: 16px; color: #28524c; font-size: .7rem; font-weight: 900; letter-spacing: .11em; } .ds-specimen-stage { min-height: 150px; } .ds-specimen-label { padding: 13px; border-top: 2px solid rgba(23,33,43,.22); background: rgba(255,255,255,.5); } .ds-specimen-label strong { font-size: .72rem; letter-spacing: .1em; } .ds-specimen-label h2 { margin: 2px 0 0; font-size: 2rem; }"
+      "css": ".ds-specimen { overflow: hidden; border: 3px solid #17212b; border-radius: 16px; background: #dbeae3; box-shadow: inset 0 0 34px rgba(32,84,77,.12); font-family: Geist, sans-serif; } .ds-specimen > p { margin: 16px; color: #28524c; font-size: .72rem; font-weight: 900; letter-spacing: .11em; } .ds-specimen-stage { min-height: 150px; } .ds-specimen-label { padding: 13px; border-top: 2px solid rgba(23,33,43,.22); background: rgba(255,255,255,.5); } .ds-specimen-label strong { font-size: .72rem; letter-spacing: .1em; } .ds-specimen-label h2 { margin: 2px 0 0; font-size: clamp(1.55rem,3vw,2.2rem); }"
+    },
+    {
+      "name": "Evolution Stage",
+      "kind": "button",
+      "description": "Compact family stage used in one horizontal, scroll-safe evolution row.",
+      "html": "<button class=\"ds-evolution-stage\"><span class=\"ds-evolution-number\">2</span><span class=\"ds-evolution-sprite\" aria-hidden=\"true\"></span><strong>Pikachu</strong><small>#0025</small></button>",
+      "css": ".ds-evolution-stage { position: relative; min-width: 74px; min-height: 76px; padding: 4px 6px 6px; display: grid; justify-items: center; align-content: center; border: 2px solid rgba(23,33,43,.34); border-radius: 10px; color: #17212b; background: #fffaf0; font-family: Geist, sans-serif; cursor: pointer; transition: border-color 150ms ease, transform 150ms ease, background-color 150ms ease; } .ds-evolution-stage:hover { border-color: #1e4f7b; background: #fff; transform: translateY(-2px); } .ds-evolution-stage:focus-visible { outline: 3px solid #3b82c4; outline-offset: 2px; } .ds-evolution-number { position: absolute; top: 6px; left: 7px; opacity: .68; font-size: .67rem; font-weight: 900; line-height: 1; } .ds-evolution-sprite { width: 40px; height: 40px; border-radius: 50%; background: #f6cf33; } .ds-evolution-stage strong { max-width: 66px; overflow: hidden; font-size: .72rem; line-height: 1.15; text-overflow: ellipsis; white-space: nowrap; } .ds-evolution-stage small { margin-top: 2px; opacity: .68; font-size: .67rem; font-weight: 800; letter-spacing: .06em; }"
     }
   ],
   "narrative": {
@@ -118,7 +133,8 @@
       "Do treat type color as data and preserve each capsule's readable text contrast.",
       "Do keep the search-to-answer path visible within one surface.",
       "Do let live Pokémon artwork sit on the cool scan-glass stage.",
-      "Do preserve clear 4×, 2×, 0.5×, 0.25×, and 0× multipliers."
+      "Do preserve clear 4×, 2×, 0.5×, 0.25×, and 0× multipliers.",
+      "Do keep every evolution branch reachable from the specimen archive."
     ],
     "donts": [
       "Don't use the official Pokémon logo or present the utility as official.",
